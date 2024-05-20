@@ -1,0 +1,12 @@
+services:
+  http:
+    build: docker/nginx
+    hostname: nginx.localhost
+    network_mode: bridge
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TARGET_PORT=8080
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
